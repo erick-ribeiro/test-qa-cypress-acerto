@@ -3,14 +3,18 @@ describe('acessar buger eats', () => {
         cy.visit('https://buger-eats.vercel.app');
     })
 
-    it('cadastrar entregador', () => {
+    const user = require('../../fixtures/users.json')
+    user.forEach(user => {
+        it('cadastrar entregador com sucesso', () => {
 
-        cy.get('a[href="/deliver"]').click()
-        cy.url().should('be.equal', 'https://buger-eats.vercel.app/deliver')
+            cy.get('a[href="/deliver"]').click()
+            cy.url().should('be.equal', 'https://buger-eats.vercel.app/deliver')
+    
+            cy.inputData(user.name, user.cpf, user.email, user.whatsapp)
+            cy.inputAddress('30380010')
+            cy.inputTypeDelivery()
+            cy.submitDelivery()
 
-        cy.inputData('Nome Completo Teste', '12277866628', 'teste@uorak.com', '88999990000')
-        cy.inputAddress('30380010')
-        cy.inputTypeDelivery()
-        cy.submitDelivery()
+        })
     })
 })
