@@ -3,30 +3,33 @@
     "name": "João Silva",
     "cpf": "36784321058",
     "email": "joao.silva@uorak.com",
-    "whatsapp": "+5585998794581",
+    "whatsapp": "85998794581",
     "vehicle_type": "Moto",
     "cep": "30380010",
     "address_number": 46,
-    "address_details": "casa comercial"
+    "address_details": "casa comercial",
+    "document": "cnh-exemple.jpg"
   },
   {
     "name": "Maria Oliveira",
     "cpf": "15893574563",
     "email": "maria.oliveira@uorak.com",
-    "whatsapp": "+5585998796732",
+    "whatsapp": "85998796732",
     "vehicle_type": "Bicicleta",
     "cep": "30380010",
     "address_number": 46,
-    "address_details": "casa comercial"
+    "address_details": "casa comercial",
+    "document": "cnh-exemple.jpg"
   },
   {
     "name": "Carlos Santos",
     "cpf": "74565896541",
     "email": "carlos.santos@uorak.com",
-    "whatsapp": "+5585998799134",
+    "whatsapp": "85998799134",
     "vehicle_type": "Van/Carro",
     "cep": "30380010",
     "address_number": 46,
-    "address_details": "casa comercial"
+    "address_details": "casa comercial",
+    "document": "cnh-exemple.jpg"
   }
 ]
