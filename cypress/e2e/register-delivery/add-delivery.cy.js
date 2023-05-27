@@ -1,21 +1,35 @@
-describe('acessar buger eats', () => {
+describe('CENARIOS POSITIVOS', () => {
     beforeEach(() => {
         cy.visit('https://buger-eats.vercel.app');
     })
 
     const user = require('../../fixtures/users.json')
     user.forEach(user => {
-        it('cadastrar entregador com sucesso', () => {
+        it(`Registrar um Entregador de ${user.vehicle_type} com Sucesso`, () => {
+            cy.openDeliverySignupForm()
+            cy.fillPersonalData(user.name, user.cpf, user.email, user.whatsapp)
+            cy.fillAddressData(user.cep, user.address_number, user.address_details)
+            cy.selectDeliveryVehicleType(user.vehicle_type)
+            cy.uploadDeliveryPersonDocument('cnh-exemple.jpg')
+            cy.submitDeliverySignupForm()
+        })
+    })
+})
 
-            cy.get('a[href="/deliver"]').click()
-            cy.url().should('be.equal', 'https://buger-eats.vercel.app/deliver')
-    
-            cy.inputData(user.name, user.cpf, user.email, user.whatsapp)
-            cy.inputAddress('30380010')
-            cy.inputTypeDelivery()
-            cy.uploadDocument()
-            cy.submitDelivery()
+describe('CENARIOS NEGATIVOS', () => {
+    beforeEach(() => {
+        cy.visit('https://buger-eats.vercel.app');
+    })
 
+    const user = require('../../fixtures/users_erro.json')
+    user.forEach(user => {
+        it(`Registrar um Entregador com Erro - ${user.type_error}`, () => {
+            cy.openDeliverySignupForm()
+            cy.fillPersonalData(user.name, user.cpf, user.email, user.whatsapp)
+            cy.fillAddressData(user.cep, user.address_number, user.address_details)
+            cy.selectDeliveryVehicleType(user.vehicle_type)
+            cy.uploadDeliveryPersonDocument('cnh-exemple.jpg')
+            cy.submitDeliverySignupForm()
         })
     })
 })
