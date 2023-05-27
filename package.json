@@ -1,0 +1,15 @@
+{
+  "name": "buger-eats",
+  "version": "1.0.0",
+  "description": "Projeto Buger Eats - Prova Técnica",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open",
+    "cypress:open": "cypress open"
+  },
+  "author": "Erick Ribeiro",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.13.0"
+  }
+}
