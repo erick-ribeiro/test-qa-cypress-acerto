@@ -44,6 +44,9 @@ Cypress.Commands.add('inputAddress', (cep) => {
 
 Cypress.Commands.add('inputTypeDelivery',() => {
     cy.get('.delivery-method > :nth-child(1)').click()
+})
+
+Cypress.Commands.add('uploadDocument',() => {
     cy.get('input[type=file]').selectFile('cypress/fixtures/cnh-exemple.jpg', {force: true})
 })
 

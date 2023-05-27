@@ -13,6 +13,7 @@ describe('acessar buger eats', () => {
             cy.inputData(user.name, user.cpf, user.email, user.whatsapp)
             cy.inputAddress('30380010')
             cy.inputTypeDelivery()
+            cy.uploadDocument()
             cy.submitDelivery()
 
         })
