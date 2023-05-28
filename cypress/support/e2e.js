@@ -1,1 +1,1 @@
-import './commands'
+import './delivery-register-commands'

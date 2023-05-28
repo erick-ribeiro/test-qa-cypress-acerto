@@ -3,7 +3,7 @@ describe('CENARIOS POSITIVOS', () => {
         cy.visit('https://buger-eats.vercel.app');
     })
 
-    const user = require('../../fixtures/users.json')
+    const user = require('../fixtures/user-positive-scenarios.json')
     user.forEach(user => {
         it(`Registrar um Entregador de ${user.vehicle_type} com Sucesso`, () => {
             cy.openDeliverySignupForm()
@@ -21,7 +21,7 @@ describe('CENARIOS NEGATIVOS', () => {
         cy.visit('https://buger-eats.vercel.app');
     })
 
-    const user = require('../../fixtures/users-error.json')
+    const user = require('../fixtures/user-negative-scenarios.json')
     user.forEach(user => {
         it(`Registrar um Entregador com Erro - ${user.type_error}`, () => {
             cy.openDeliverySignupForm()

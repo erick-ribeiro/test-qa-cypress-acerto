@@ -1,6 +1,6 @@
 describe('Verificar API de consulta de CEP', () => {
 
-    const cep = require('../../fixtures/cep.json')
+    const cep = require('../fixtures/cep.json')
     cep.forEach(cep => {
         it('buscar CEP', () => {
             cy.request({
