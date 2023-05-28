@@ -1,11 +1,11 @@
 Cypress.Commands.add('openDeliverySignupForm', () => {
     cy.get('a[href="/deliver"]').click()
-    cy.url().should('be.equal', 'https://buger-eats.vercel.app/deliver')
+    cy.url().should('be.equal', `${Cypress.config("baseUrl")}/deliver`)
 })
 
 Cypress.Commands.add('fillPersonalData', (name, cpf, email, whatsapp) => {
     name && cy.get('input[name="name"]').type(name).should('have.value', name)
-    cpf && cy.get('input[name="cpf"]').type(cpf).should('have.value', cpf)
+    cpf && cy.get('input[name="cpf"]').type(cpf, {log: false}).should('have.value', cpf, {log: false})
     email && cy.get('input[name="email"]').type(email).should('have.value', email)
     whatsapp && cy.get('input[name="whatsapp"]').type(whatsapp).should('have.value', whatsapp)
 

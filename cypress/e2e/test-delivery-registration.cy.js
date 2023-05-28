@@ -1,6 +1,6 @@
 describe('CENARIOS POSITIVOS', () => {
     beforeEach(() => {
-        cy.visit('https://buger-eats.vercel.app');
+        cy.visit('/');
     })
 
     const user = require('../fixtures/user-positive-scenarios.json')
@@ -18,7 +18,7 @@ describe('CENARIOS POSITIVOS', () => {
 
 describe('CENARIOS NEGATIVOS', () => {
     beforeEach(() => {
-        cy.visit('https://buger-eats.vercel.app');
+        cy.visit('/');
     })
 
     const user = require('../fixtures/user-negative-scenarios.json')
