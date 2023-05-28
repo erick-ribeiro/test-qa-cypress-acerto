@@ -39,8 +39,8 @@ describe('Validação de contrato da API ViaCEP', () => {
         }).then((res) => {
             const validate = ajv.compile(schema);
             const valid = validate(res.body);
-            expect(res.body).to.have.all.keys('cep', 'logradouro', 'complemento', 'bairro', 'localidade', 'uf', 'ibge', 'gia', 'ddd', 'siafi');
             expect(valid, ajv.errorsText(validate.errors)).to.be.true;
+            expect(res.body).to.have.all.keys('cep', 'logradouro', 'complemento', 'bairro', 'localidade', 'uf', 'ibge', 'gia', 'ddd', 'siafi');
         });
     });
 })

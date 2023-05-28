@@ -3,7 +3,7 @@ describe('CENARIOS POSITIVOS', () => {
         cy.visit('/');
     })
 
-    const user = require('../fixtures/user-positive-scenarios.json')
+    const user = require('../../fixtures/user-positive-scenarios.json')
     user.forEach(user => {
         it(`Registrar um Entregador de ${user.vehicle_type} com Sucesso`, () => {
             cy.openDeliverySignupForm()
@@ -21,7 +21,7 @@ describe('CENARIOS NEGATIVOS', () => {
         cy.visit('/');
     })
 
-    const user = require('../fixtures/user-negative-scenarios.json')
+    const user = require('../../fixtures/user-negative-scenarios.json')
     user.forEach(user => {
         it(`Registrar um Entregador com Erro - ${user.type_error}`, () => {
             cy.openDeliverySignupForm()
