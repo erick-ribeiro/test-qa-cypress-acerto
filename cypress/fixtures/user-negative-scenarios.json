@@ -108,6 +108,18 @@
     "document": "cnh-exemple.jpg"
   },
   {
+    "type_error": "Selecionando dois Tipos de Veiculos",
+    "name": "João Silva",
+    "cpf": "36784321058",
+    "email": "joao.silva@uorak.com",
+    "whatsapp": "85998794581",
+    "vehicle_type": ["Moto", "Bicicleta"],
+    "cep": "30380010",
+    "address_number": 46,
+    "address_details": "casa comercial",
+    "document": "cnh-exemple.jpg"
+  },
+  {
     "type_error": "Documento não enviado",
     "name": "João Silva",
     "cpf": "36784321058",

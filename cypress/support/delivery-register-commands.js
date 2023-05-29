@@ -18,7 +18,11 @@ Cypress.Commands.add('fillAddressData', (cep, addressNumber, addressDetails) => 
 })
 
 Cypress.Commands.add('selectDeliveryVehicleType',(vehicleType) => {
-    vehicleType && cy.get(`span:contains(${vehicleType})`).click()
+    if (vehicleType && Array.isArray(vehicleType)) {
+        vehicleType.forEach((vehicleType) => {
+          cy.get(`span:contains(${vehicleType})`).click();
+        });
+    }
 })
 
 Cypress.Commands.add('uploadDeliveryPersonDocument',(document) => {
@@ -72,6 +76,10 @@ Cypress.Commands.add('submitDeliverySignupForm', (status) => {
         'Tipo do Veiculo em Branco': () => {
             cy.get(deliverySignupSubmitButton).click();
             cy.contains(formErrorAlertField, 'Selecione o método de entrega').should('be.visible')
+        },
+        'Selecionando dois Tipos de Veiculos': () => {
+            cy.get(deliverySignupSubmitButton).click();
+            cy.contains(formErrorAlertField, 'Oops! Selecione apenas um método de entrega').should('be.visible')
         },
         'Documento não enviado': () => {
             cy.get(deliverySignupSubmitButton).click();
