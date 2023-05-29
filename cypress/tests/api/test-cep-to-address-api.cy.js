@@ -55,17 +55,17 @@ describe('Validação de integração da API ViaCEP', () => {
             method: 'GET',
             url:`https://viacep.com.br/ws/30380010/json/`
         }).then((res) => {
-            expect(res.status).to.be.equal(200)
-            expect(res.body).to.have.property('cep', '30380-010')
-            expect(res.body).to.have.property('logradouro', 'Rua Bernardo Mascarenhas')
-            expect(res.body).to.have.property('complemento', '')
-            expect(res.body).to.have.property('bairro', 'Cidade Jardim')
-            expect(res.body).to.have.property('localidade', 'Belo Horizonte')
-            expect(res.body).to.have.property('uf', 'MG')
-            expect(res.body).to.have.property('ibge', '3106200')
-            expect(res.body).to.have.property('gia', '')
-            expect(res.body).to.have.property('ddd', '31')
-            expect(res.body).to.have.property('siafi', '4123')
+            expect(res.status).to.be.equal(200);
+            expect(res.body).to.have.property('cep', '30380-010');
+            expect(res.body).to.have.property('logradouro', 'Rua Bernardo Mascarenhas');
+            expect(res.body).to.have.property('complemento', '');
+            expect(res.body).to.have.property('bairro', 'Cidade Jardim');
+            expect(res.body).to.have.property('localidade', 'Belo Horizonte');
+            expect(res.body).to.have.property('uf', 'MG');
+            expect(res.body).to.have.property('ibge', '3106200');
+            expect(res.body).to.have.property('gia', '');
+            expect(res.body).to.have.property('ddd', '31');
+            expect(res.body).to.have.property('siafi', '4123');
             }
         )
     })
