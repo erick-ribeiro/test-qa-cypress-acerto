@@ -1,12 +1,10 @@
 describe('CENARIOS POSITIVOS', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/deliver')
     })
-
     const user = require('../../fixtures/user-positive-scenarios.json')
     user.forEach(user => {
         it(`Registrar um Entregador de ${user.vehicle_type} com Sucesso`, () => {
-            cy.openDeliverySignupForm()
             cy.fillPersonalData(user.name, user.cpf, user.email, user.whatsapp)
             cy.fillAddressData(user.cep, user.address_number, user.address_details)
             cy.selectDeliveryVehicleType(user.vehicle_type)
@@ -18,13 +16,11 @@ describe('CENARIOS POSITIVOS', () => {
 
 describe('CENARIOS NEGATIVOS', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/deliver')
     })
-
     const user = require('../../fixtures/user-negative-scenarios.json')
     user.forEach(user => {
         it(`Registrar um Entregador com Erro - ${user.type_error}`, () => {
-            cy.openDeliverySignupForm()
             cy.fillPersonalData(user.name, user.cpf, user.email, user.whatsapp)
             cy.fillAddressData(user.cep, user.address_number, user.address_details)
             cy.selectDeliveryVehicleType(user.vehicle_type)

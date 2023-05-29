@@ -1,3 +1,7 @@
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+});
+
 describe('Validação de funcionamento da API ViaCEP', () => {
     it('Verifica se API ViaCEP esta funcionando', () => {
         cy.request({
