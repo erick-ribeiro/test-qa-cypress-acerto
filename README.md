@@ -8,7 +8,7 @@ O repositório consiste nas seguintes partes principais:
 
 - `fixtures`: Esta pasta contém dados de apoio para os testes.
 - `support`: Esta pasta contém comandos customizados para facilitar a leitura e reaproveitamento de codigo.
-- `test`: Esta pasta contém os arquivos de tests.
+- `tests`: Esta pasta contém os arquivos de tests.
     - `api`: Esta pasta contém testes de API
     - `ui`: Esta pasta contém testes executados na interface do usuário.
 
