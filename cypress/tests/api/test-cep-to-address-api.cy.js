@@ -1,4 +1,4 @@
-Cypress.on('uncaught:exception', (err, runnable) => {
+Cypresponses.on('uncaught:exception', (err, runnable) => {
     return false;
 });
 
@@ -7,8 +7,8 @@ describe('Validação de funcionamento da API ViaCEP', function() {
         cy.request({
             method: 'GET',
             url: 'https://viacep.com.br/ws/30380010/json/'
-        }).then((res) => {
-            expect(res.status).to.be.equal(200);
+        }).should(function(response) {
+            expect(response.status).to.be.equal(200);
         });
     });
 })
@@ -36,15 +36,15 @@ describe('Validação de contrato da API ViaCEP', function() {
         additionalProperties: false
     };
 
-    it('Verifica se a resposta da API ViaCEP esta atendendo ao contrato estabelecido', function() {
+    it('Verifica se a responseposta da API ViaCEP esta atendendo ao contrato estabelecido', function() {
         cy.request({
             method: 'GET',
             url: 'https://viacep.com.br/ws/30380010/json/'
-        }).then((res) => {
+        }).should(function(response) {
             const validate = ajv.compile(schema);
-            const valid = validate(res.body);
+            const valid = validate(response.body);
             expect(valid, ajv.errorsText(validate.errors)).to.be.true;
-            expect(res.body).to.have.all.keys('cep', 'logradouro', 'complemento', 'bairro', 'localidade', 'uf', 'ibge', 'gia', 'ddd', 'siafi');
+            expect(response.body).to.have.all.keys('cep', 'logradouro', 'complemento', 'bairro', 'localidade', 'uf', 'ibge', 'gia', 'ddd', 'siafi');
         });
     });
 })
@@ -54,18 +54,18 @@ describe('Validação de integração da API ViaCEP', function() {
         cy.request({
             method: 'GET',
             url:`https://viacep.com.br/ws/30380010/json/`
-        }).then((res) => {
-            expect(res.status).to.be.equal(200);
-            expect(res.body).to.have.property('cep', '30380-010');
-            expect(res.body).to.have.property('logradouro', 'Rua Bernardo Mascarenhas');
-            expect(res.body).to.have.property('complemento', '');
-            expect(res.body).to.have.property('bairro', 'Cidade Jardim');
-            expect(res.body).to.have.property('localidade', 'Belo Horizonte');
-            expect(res.body).to.have.property('uf', 'MG');
-            expect(res.body).to.have.property('ibge', '3106200');
-            expect(res.body).to.have.property('gia', '');
-            expect(res.body).to.have.property('ddd', '31');
-            expect(res.body).to.have.property('siafi', '4123');
+        }).should(function(response) {
+            expect(response.status).to.be.equal(200);
+            expect(response.body).to.have.property('cep', '30380-010');
+            expect(response.body).to.have.property('logradouro', 'Rua Bernardo Mascarenhas');
+            expect(response.body).to.have.property('complemento', '');
+            expect(response.body).to.have.property('bairro', 'Cidade Jardim');
+            expect(response.body).to.have.property('localidade', 'Belo Horizonte');
+            expect(response.body).to.have.property('uf', 'MG');
+            expect(response.body).to.have.property('ibge', '3106200');
+            expect(response.body).to.have.property('gia', '');
+            expect(response.body).to.have.property('ddd', '31');
+            expect(response.body).to.have.property('siafi', '4123');
             }
         )
     })
