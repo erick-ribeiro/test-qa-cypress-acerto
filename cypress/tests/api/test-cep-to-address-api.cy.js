@@ -2,8 +2,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 });
 
-describe('Validação de funcionamento da API ViaCEP', () => {
-    it('Verifica se API ViaCEP esta funcionando', () => {
+describe('Validação de funcionamento da API ViaCEP', function() {
+    it('Verifica se API ViaCEP esta funcionando', function() {
         cy.request({
             method: 'GET',
             url: 'https://viacep.com.br/ws/30380010/json/'
@@ -13,7 +13,7 @@ describe('Validação de funcionamento da API ViaCEP', () => {
     });
 })
 
-describe('Validação de contrato da API ViaCEP', () => {
+describe('Validação de contrato da API ViaCEP', function() {
 
     const Ajv = require('ajv');
     const ajv = new Ajv();
@@ -36,7 +36,7 @@ describe('Validação de contrato da API ViaCEP', () => {
         additionalProperties: false
     };
 
-    it('Verifica se a resposta da API ViaCEP esta atendendo ao contrato estabelecido', () => {
+    it('Verifica se a resposta da API ViaCEP esta atendendo ao contrato estabelecido', function() {
         cy.request({
             method: 'GET',
             url: 'https://viacep.com.br/ws/30380010/json/'
@@ -49,8 +49,8 @@ describe('Validação de contrato da API ViaCEP', () => {
     });
 })
 
-describe('Validação de integração da API ViaCEP', () => {
-    it('Verifica se o retorno da API ViaCEP esta dentro do esperado', () => {
+describe('Validação de integração da API ViaCEP', function() {
+    it('Verifica se o retorno da API ViaCEP esta dentro do esperado', function() {
         cy.request({
             method: 'GET',
             url:`https://viacep.com.br/ws/30380010/json/`

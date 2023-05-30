@@ -4,8 +4,8 @@
   "description": "Projeto Buger Eats - Prova Técnica",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open",
-    "cypress:open": "cypress open"
+    "test": "npx cypress run",
+    "cypress:open": "npx cypress open"
   },
   "author": "Erick Ribeiro",
   "license": "ISC",
