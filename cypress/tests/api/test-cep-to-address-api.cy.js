@@ -1,10 +1,6 @@
-Cypresponses.on('uncaught:exception', (err, runnable) => {
-    return false;
-});
-
 describe('Validação de funcionamento da API ViaCEP', function() {
     it('Verifica se API ViaCEP esta funcionando', function() {
-        cy.request({
+        cy.api({
             method: 'GET',
             url: 'https://viacep.com.br/ws/30380010/json/'
         }).should(function(response) {
@@ -37,7 +33,7 @@ describe('Validação de contrato da API ViaCEP', function() {
     };
 
     it('Verifica se a responseposta da API ViaCEP esta atendendo ao contrato estabelecido', function() {
-        cy.request({
+        cy.api({
             method: 'GET',
             url: 'https://viacep.com.br/ws/30380010/json/'
         }).should(function(response) {
@@ -51,7 +47,7 @@ describe('Validação de contrato da API ViaCEP', function() {
 
 describe('Validação de integração da API ViaCEP', function() {
     it('Verifica se o retorno da API ViaCEP esta dentro do esperado', function() {
-        cy.request({
+        cy.api({
             method: 'GET',
             url:`https://viacep.com.br/ws/30380010/json/`
         }).should(function(response) {
