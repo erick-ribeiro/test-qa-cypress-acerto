@@ -92,6 +92,6 @@ Cypress.Commands.add('submitDeliverySignupForm', (status) => {
     if (actionForCurrentFormStatus[status]) {
         actionForCurrentFormStatus[status]();
     } else {
-        alert("Status de erro desconhecido, revisar suite de teste!");
+        // alert("Status de erro desconhecido, revisar suite de teste!");
     }
 })
