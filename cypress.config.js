@@ -17,4 +17,5 @@ module.exports = defineConfig({
     specPattern: "cypress/*/**/*.cy.{js,jsx,ts,tsx}",
     baseUrl: "https://buger-eats.vercel.app"
   },
+  video: false
 });
